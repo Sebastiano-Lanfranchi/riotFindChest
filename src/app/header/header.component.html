@@ -1,0 +1,18 @@
+<p>BETA FINDCHEST!</p>
+
+<mat-form-field class="example-full-width" appearance="fill" name="fieldName">
+    <mat-label>Nickname</mat-label>
+    <input matInput type="text" [(ngModel)]="summonerName" ngDefaultControl>
+    <button *ngIf="summonerName" matSuffix mat-icon-button aria-label="Clear" (click)="summonerName=''">
+        <mat-icon>close</mat-icon>
+    </button>
+
+</mat-form-field>
+<mat-form-field class="example-full-width" appearance="fill" name="fieldName">
+    <mat-label>Choose an option</mat-label>
+    <mat-select [(ngModel)]="regionSelected" ngDefaultControl>
+        <mat-option *ngFor="let region of regionList"  [value]="region" >{{region}}</mat-option>
+    </mat-select>
+</mat-form-field>
+{{regionSelected}}
+<button mat-raised-button color="primary" (click)="GetUserInfo()">Submit</button>
