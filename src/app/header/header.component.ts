@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import  axios  from 'axios';
 
 @Component({
@@ -19,19 +20,15 @@ export class HeaderComponent implements OnInit {
   GetUserInfo(){
     let config = {
       headers: {
+        'X-Riot-Token': environment['X-Riot-Token'],
         'Access-Control-Allow-Origin': '*',
         "Access-Control-Allow-Methods": "GET, PUT, DELETE, POST, OPTIONS",
         "Access-Control-Allow-Headers": "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range",
         "Access-Control-Expose-Headers": "Content-Length,Content-Range",
         "Content-Type": "application/json;charset=utf-8",
       },
-      params: {
-        summonerName: this.summonerName,
-        execute_against: this.regionSelected,
-        api_key: 'RGAPI-ddfed81a-16a4-4890-9f71-dc6577d6614c',
-      }
     }
-    let url = 'https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
+    let url = "https://cors-anywhere.herokuapp.com/https://"+this.regionSelected.toLowerCase()+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+this.summonerName;
     axios.get(url, config)
   }
 

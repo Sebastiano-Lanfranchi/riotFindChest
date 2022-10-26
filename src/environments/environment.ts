@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  'X-Riot-Token': 'RGAPI-b38d7dc8-69d3-4cc6-9abf-0c6ecc0d9a4c',
 };
 
 /*
