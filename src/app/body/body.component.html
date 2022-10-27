@@ -1,0 +1,7 @@
+<p>body works!</p>
+<ul *ngIf="refresh">
+    <li *ngFor="let champ of renderlist">
+        <img src='{{ "assets/champion/" + champ.championName + ".png" }}'>
+        {{champ.championName}}
+    </li>
+</ul>
